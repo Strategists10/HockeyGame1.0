@@ -40,20 +40,20 @@ function keyReleased() {
 };
 
 var Player1 = function(){
-	if(x > 75){if(keys1[0] === true){x-=3;}}
-	if(x < 900/2-25){if(keys1[1] === true){x+=3;}}
-    if(y > 75){if(keys1[2] === true){y-=3;}}
-    if(y < 500-75){if(keys1[3] === true){y+=3;}}
+	if(x > 75){if(keys1[0] === true){x-=5;}}
+	if(x < 900/2-25){if(keys1[1] === true){x+=5;}}
+    if(y > 75){if(keys1[2] === true){y-=5;}}
+    if(y < 500-75){if(keys1[3] === true){y+=5;}}
     noStroke();
     fill(150);
     ellipse(x, y, 50,50);
 };
 
 var Player2 = function(){
-	if(x2 > 475){if(keys2[0] === true){x2-=3;}}
-	if(x2 < 825){if(keys2[1] === true){x2+=3;}}
-    if(y2 > 75){if(keys2[2] === true){y2-=3;}}
-    if(y2 < 425){if(keys2[3] === true){y2+=3;}}
+	if(x2 > 475){if(keys2[0] === true){x2-=5;}}
+	if(x2 < 825){if(keys2[1] === true){x2+=5;}}
+    if(y2 > 75){if(keys2[2] === true){y2-=5;}}
+    if(y2 < 425){if(keys2[3] === true){y2+=5;}}
     noStroke();
     fill(150);
     ellipse(x2, y2, 50,50);
