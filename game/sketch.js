@@ -4,6 +4,7 @@ var score1 = 0;
 var score2 = 0;
 var keys1 =[false, false,false,false];
 var keys2 =[false, false,false,false];
+var speed = 7;
 
 function setup() {
   // put setup code here
@@ -40,20 +41,20 @@ function keyReleased() {
 };
 
 var Player1 = function(){
-	if(x > 75){if(keys1[0] === true){x-=7;}}
-	if(x < 900/2-25){if(keys1[1] === true){x+=7;}}
-    if(y > 75){if(keys1[2] === true){y-=7;}}
-    if(y < 500-75){if(keys1[3] === true){y+=7;}}
+	if(x > 75){if(keys1[0] === true){x-=speed;}}
+	if(x < 900/2-25){if(keys1[1] === true){x+=speed;}}
+    if(y > 75){if(keys1[2] === true){y-=speed;}}
+    if(y < 500-75){if(keys1[3] === true){y+=speed;}}
     noStroke();
     fill(150);
     ellipse(x, y, 50,50);
 };
 
 var Player2 = function(){
-	if(x2 > 475){if(keys2[0] === true){x2-=7;}}
-	if(x2 < 825){if(keys2[1] === true){x2+=7;}}
-    if(y2 > 75){if(keys2[2] === true){y2-=7;}}
-    if(y2 < 425){if(keys2[3] === true){y2+=7;}}
+	if(x2 > 475){if(keys2[0] === true){x2-=speed;}}
+	if(x2 < 825){if(keys2[1] === true){x2+=speed;}}
+    if(y2 > 75){if(keys2[2] === true){y2-=speed;}}
+    if(y2 < 425){if(keys2[3] === true){y2+=speed;}}
     noStroke();
     fill(150);
     ellipse(x2, y2, 50,50);
