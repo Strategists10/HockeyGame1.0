@@ -4,7 +4,9 @@ var score1 = 0;
 var score2 = 0;
 var keys1 =[false, false,false,false];
 var keys2 =[false, false,false,false];
-var speed = 7;
+var start = false;
+var menu = true;
+var contr = false;
 
 function setup() {
   // put setup code here
@@ -41,20 +43,20 @@ function keyReleased() {
 };
 
 var Player1 = function(){
-	if(x > 75){if(keys1[0] === true){x-=speed;}}
-	if(x < 900/2-25){if(keys1[1] === true){x+=speed;}}
-    if(y > 75){if(keys1[2] === true){y-=speed;}}
-    if(y < 500-75){if(keys1[3] === true){y+=speed;}}
+	if(x > 75){if(keys1[0] === true){x-=7;}}
+	if(x < 900/2-25){if(keys1[1] === true){x+=7;}}
+    if(y > 75){if(keys1[2] === true){y-=7;}}
+    if(y < 500-75){if(keys1[3] === true){y+=7;}}
     noStroke();
     fill(150);
     ellipse(x, y, 50,50);
 };
 
 var Player2 = function(){
-	if(x2 > 475){if(keys2[0] === true){x2-=speed;}}
-	if(x2 < 825){if(keys2[1] === true){x2+=speed;}}
-    if(y2 > 75){if(keys2[2] === true){y2-=speed;}}
-    if(y2 < 425){if(keys2[3] === true){y2+=speed;}}
+	if(x2 > 475){if(keys2[0] === true){x2-=7;}}
+	if(x2 < 825){if(keys2[1] === true){x2+=7;}}
+    if(y2 > 75){if(keys2[2] === true){y2-=7;}}
+    if(y2 < 425){if(keys2[3] === true){y2+=7;}}
     noStroke();
     fill(150);
     ellipse(x2, y2, 50,50);
@@ -138,7 +140,7 @@ var reset = function(){
 }
 
 function score(){
-	if(BPosition.x < 51 && BPosition.y > 150 && BPosition.y < 350){
+	if(BPosition.x < 51 && BPosition.y > 150 && BPosition.y < 330){
 		score1++;
 		reset();
 		
@@ -152,17 +154,102 @@ function score(){
 	text(score1, 400, 150);
 	text(score2, 500, 150);
 }
+function scoreCount(){
+	if(score1 === 7){
+		textSize(50);
+		text("Player one won the match",300, 250 );
+		score1 = 0;
+		score2 = 0;
+	}
+	if (score2 === 7){
+		textSize(50);
+		text("Player two won the match",300, 250 );
+		score1 = 0;
+		score2 = 0;
+	}
+}
+
+var controls = function(){
+	field();
+	fill(217, 247, 246);
+	
+	textAlign(CENTER);
+	rect(225, 100, 450, 300);
+	
+	
+
+
+	if(mouseX >350 && mouseX < 550 && mouseY > 150 && mouseY < 200){
+		fill(255,0,0);
+		if(mouseIsPressed){
+			start = true;
+			menu = false;
+		}
+	}
+	else{
+		fill(255);
+	}
+	rect(350, 150, 200,50);
+	textAlign(CENTER);
+	textSize(36);
+	text("START", 450, 190);
+}
+
+var startMenu = function(){
+	field();
+	stroke(0);
+	strokeWeight(5);
+	fill(217, 247, 246);
+	rect(350, 150, 200,250);
+
+
+	if(mouseX >375 && mouseX < 525 && mouseY > 200 && mouseY < 250){
+		fill(255,0,0);
+		if(mouseIsPressed){
+			start = true;
+			menu = false;
+		}
+	}
+	else{
+		fill(255);
+	}
+	rect(375, 200, 150,50);
+	textAlign(CENTER);
+	textSize(36);
+	text("START", 450, 240);
+
+
+	if(mouseX >375 && mouseX < 525 && mouseY > 300 && mouseY < 350){
+		fill(255,0,0);
+		if(mouseIsPressed){
+			contr = true;
+			menu = false;
+		}
+	}
+	else{fill(255);}
+	rect(375, 300, 150,50);
+	text("Controls", 450, 340);
+}
 
 function draw() {
   // put drawing code here
-  field();
-  Player1();
-  Player2();
-  update();
-  update2();
-  checkEdges();
-  display();
-  score();
+  if(menu){
+  	startMenu();
+  }
+  if(contr){
+  	controls();
+  }
+  if(start){
+  	field();
+  	Player1();
+  	Player2();
+  	update();
+  	update2();
+  	checkEdges();
+  	display();
+  	score();
+  	scoreCount();
+  }
   
 
 
