@@ -7,12 +7,15 @@ var keys2 =[false, false,false,false];
 var start = false;
 var menu = true;
 var contr = false;
+var end1 = false;
+var end2 = false;
 
 function setup() {
   // put setup code here
  	createCanvas(900, 500);
  	BPosition = createVector(450,250);
  	BVelocity = createVector(0,0);
+ 	field();
  	
 }
 
@@ -141,13 +144,20 @@ var reset = function(){
 
 function score(){
 	if(BPosition.x < 51 && BPosition.y > 150 && BPosition.y < 330){
-		score1++;
+		score2++;
 		reset();
+		if(score2 === 7){
+			end2 = true;
+		}
+
 		
 	}
 	if(BPosition.x > 849 && BPosition.y > 150 && BPosition.y < 350){
-		score2++;
+		score1++;
 		reset();
+		if(score1 === 7){
+			end1 = true;
+		}
 		
 	}
 	textSize(50);
@@ -169,6 +179,15 @@ function scoreCount(){
 	}
 }
 
+var buttonKey = function(xK, yK, widthK, heightK, textK){
+	fill(255);
+	rect(xK, yK, widthK, heightK);
+	textAlign(LEFT);
+	textSize(40)
+	stroke(0);
+	text(textK, x , y + vidthK -5);
+}
+
 var controls = function(){
 	field();
 	fill(217, 247, 246);
@@ -176,7 +195,7 @@ var controls = function(){
 	textAlign(CENTER);
 	rect(225, 100, 450, 300);
 	
-	
+	buttonKey(width/2-150, height/2, 50,50, "W");
 
 
 	if(mouseX >350 && mouseX < 550 && mouseY > 150 && mouseY < 200){
@@ -184,6 +203,10 @@ var controls = function(){
 		if(mouseIsPressed){
 			start = true;
 			menu = false;
+			gameEnd1 = false;
+			gameEnd2 = false;
+			score1 = 0;
+			score2 = 0;
 		}
 	}
 	else{
@@ -196,7 +219,7 @@ var controls = function(){
 }
 
 var startMenu = function(){
-	field();
+	//field();
 	stroke(0);
 	strokeWeight(5);
 	fill(217, 247, 246);
@@ -208,6 +231,10 @@ var startMenu = function(){
 		if(mouseIsPressed){
 			start = true;
 			menu = false;
+			gameEnd1 = false;
+			gameEnd2 = false;
+			score1 = 0;
+			score2 = 0;
 		}
 	}
 	else{
@@ -224,11 +251,32 @@ var startMenu = function(){
 		if(mouseIsPressed){
 			contr = true;
 			menu = false;
+			gameEnd1 = false;
+			gameEnd2 = false;
+			score1 = 0;
+			score2 = 0;
 		}
 	}
 	else{fill(255);}
 	rect(375, 300, 150,50);
 	text("Controls", 450, 340);
+}
+
+var End1 = function(){
+		textAlign(CENTER);
+		textSize(50);
+		fill(255);
+		text("Player one won the match", 450, 100);
+		start = false;
+		menu = true;
+	}
+var End2 = function(){
+		textAlign(CENTER);
+		textSize(50);
+		fill(255);
+		text("Player two won the match", 450, 100);
+		start = false;
+		menu = true;
 }
 
 function draw() {
@@ -248,7 +296,13 @@ function draw() {
   	checkEdges();
   	display();
   	score();
-  	scoreCount();
+  	//scoreCount();
+  }
+  if(end1){
+  	End1();
+  }
+  if(end2){
+  	End2();
   }
   
 
