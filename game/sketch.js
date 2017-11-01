@@ -133,9 +133,9 @@ var checkEdges = function(){
 
 var reset = function(){
 	x = 250;
-	y = 250;
+	y = 245;
 	x2 = 650;
-	y2 = 250;
+	y2 = 245;
 	BPosition.x = 450;
 	BPosition.y = 250;
 	BVelocity.x = 0;
