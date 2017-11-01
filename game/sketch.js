@@ -1,5 +1,5 @@
-var x = 250, y = 250;
-var x2 = 650, y2 = 250;
+var x = 250, y = 245;
+var x2 = 650, y2 = 245;
 var score1 = 0;
 var score2 = 0;
 var keys1 =[false, false,false,false];
@@ -197,10 +197,11 @@ var controls = function(){
 		if(mouseIsPressed){
 			start = true;
 			menu = false;
-			gameEnd1 = false;
-			gameEnd2 = false;
+			end1 = false;
+			end2 = false;
 			score1 = 0;
 			score2 = 0;
+			contr = false;
 		}
 	}
 	else{
@@ -225,8 +226,9 @@ var startMenu = function(){
 		if(mouseIsPressed){
 			start = true;
 			menu = false;
-			gameEnd1 = false;
-			gameEnd2 = false;
+			contr = false;
+			end1 = false;
+			end2 = false;
 			score1 = 0;
 			score2 = 0;
 		}
@@ -243,10 +245,11 @@ var startMenu = function(){
 	if(mouseX >375 && mouseX < 525 && mouseY > 300 && mouseY < 350){
 		fill(255,0,0);
 		if(mouseIsPressed){
+			start = false
 			contr = true;
 			menu = false;
-			gameEnd1 = false;
-			gameEnd2 = false;
+			end1 = false;
+			end2 = false;
 			score1 = 0;
 			score2 = 0;
 		}
@@ -263,6 +266,7 @@ var End1 = function(){
 		text("Player one won the match", 450, 100);
 		start = false;
 		menu = true;
+		contr = false;
 	}
 var End2 = function(){
 		textAlign(CENTER);
@@ -271,6 +275,7 @@ var End2 = function(){
 		text("Player two won the match", 450, 100);
 		start = false;
 		menu = true;
+		contr = false;
 }
 
 function draw() {
