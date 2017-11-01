@@ -143,7 +143,7 @@ var reset = function(){
 }
 
 function score(){
-	if(BPosition.x < 51 && BPosition.y > 150 && BPosition.y < 330){
+	if(BPosition.x < 51 && BPosition.y > 170 && BPosition.y < 330){
 		score2++;
 		reset();
 		if(score2 === 7){
@@ -152,7 +152,7 @@ function score(){
 
 		
 	}
-	if(BPosition.x > 849 && BPosition.y > 150 && BPosition.y < 350){
+	if(BPosition.x > 849 && BPosition.y > 170 && BPosition.y < 330){
 		score1++;
 		reset();
 		if(score1 === 7){
@@ -164,28 +164,16 @@ function score(){
 	text(score1, 400, 150);
 	text(score2, 500, 150);
 }
-function scoreCount(){
-	if(score1 === 7){
-		textSize(50);
-		text("Player one won the match",300, 250 );
-		score1 = 0;
-		score2 = 0;
-	}
-	if (score2 === 7){
-		textSize(50);
-		text("Player two won the match",300, 250 );
-		score1 = 0;
-		score2 = 0;
-	}
-}
 
 var buttonKey = function(xK, yK, widthK, heightK, textK){
 	fill(255);
 	rect(xK, yK, widthK, heightK);
 	textAlign(LEFT);
-	textSize(40)
+	textSize(40);
 	stroke(0);
-	text(textK, x , y + vidthK -5);
+	fill(255,0,0);
+	text(textK, xK+7 , yK + widthK -7);
+
 }
 
 var controls = function(){
@@ -196,7 +184,13 @@ var controls = function(){
 	rect(225, 100, 450, 300);
 	
 	buttonKey(width/2-150, height/2, 50,50, "W");
-
+	buttonKey(width/2-150, height/2+50, 50,50, "S");
+	buttonKey(width/2-100, height/2+50, 50,50, "A");
+	buttonKey(width/2-200, height/2+50, 50,50, "D");
+	buttonKey(width/2+100, height/2, 50,50, " 8");
+	buttonKey(width/2+100, height/2+50, 50,50, " 5");
+	buttonKey(width/2+50, height/2+50, 50,50, " 4");
+	buttonKey(width/2+150, height/2+50, 50,50, " 6");
 
 	if(mouseX >350 && mouseX < 550 && mouseY > 150 && mouseY < 200){
 		fill(255,0,0);
