@@ -184,9 +184,9 @@ var controls = function(){
 	rect(225, 100, 450, 300);
 	
 	buttonKey(width/2-150, height/2, 50,50, "W");
-	buttonKey(width/2-150, height/2+50, 50,50, "S");
+	buttonKey(width/2-150, height/2+50, 50,50, "D");
 	buttonKey(width/2-100, height/2+50, 50,50, "A");
-	buttonKey(width/2-200, height/2+50, 50,50, "D");
+	buttonKey(width/2-200, height/2+50, 50,50, "A");
 	buttonKey(width/2+100, height/2, 50,50, " 8");
 	buttonKey(width/2+100, height/2+50, 50,50, " 5");
 	buttonKey(width/2+50, height/2+50, 50,50, " 4");
