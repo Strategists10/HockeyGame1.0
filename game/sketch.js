@@ -26,10 +26,10 @@ function keyPressed() {
   if (keyCode === 87){  keys1[2] = true;}
   if (keyCode === 83){  keys1[3] = true;}
 	//Player 2 ball controls
-  if (keyCode === 100){  keys2[0] = true;}
-  if (keyCode === 102){  keys2[1] = true;}
-  if (keyCode === 104){  keys2[2] = true;}
-  if (keyCode === 101){  keys2[3] = true;}
+  if (keyCode === LEFT_ARROW){  keys2[0] = true;}
+  if (keyCode === RIGHT_ARROW){  keys2[1] = true;}
+  if (keyCode === UP_ARROW){  keys2[2] = true;}
+  if (keyCode === DOWN_ARROW){  keys2[3] = true;}
 };
 
 function keyReleased() {
@@ -39,10 +39,10 @@ function keyReleased() {
   if (keyCode === 87){  keys1[2] = false;}
   if (keyCode === 83){  keys1[3] = false;}
   	//Player 2 ball controls
-  if (keyCode === 100){  keys2[0] = false;}
-  if (keyCode === 102){  keys2[1] = false;}
-  if (keyCode === 104){  keys2[2] = false;}
-  if (keyCode === 101){  keys2[3] = false;}
+  if (keyCode === LEFT_ARROW){  keys2[0] = false;}
+  if (keyCode === RIGHT_ARROW){  keys2[1] = false;}
+  if (keyCode === UP_ARROW){  keys2[2] = false;}
+  if (keyCode === DOWN_ARROW){  keys2[3] = false;}
 };
 
 var Player1 = function(){
