@@ -187,10 +187,10 @@ var controls = function(){
 	buttonKey(width/2-150, height/2+50, 50,50, "S");
 	buttonKey(width/2-100, height/2+50, 50,50, "D");
 	buttonKey(width/2-200, height/2+50, 50,50, "A");
-	buttonKey(width/2+100, height/2, 50,50, " 8");
-	buttonKey(width/2+100, height/2+50, 50,50, " 5");
-	buttonKey(width/2+50, height/2+50, 50,50, " 4");
-	buttonKey(width/2+150, height/2+50, 50,50, " 6");
+	buttonKey(width/2+100, height/2, 50,50, "UP");
+	buttonKey(width/2+100, height/2+50, 50,50, "DOWN");
+	buttonKey(width/2+50, height/2+50, 50,50, "LEFT");
+	buttonKey(width/2+150, height/2+50, 50,50, " RIGHT");
 
 	if(mouseX >350 && mouseX < 550 && mouseY > 150 && mouseY < 200){
 		fill(255,0,0);
