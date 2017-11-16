@@ -169,7 +169,7 @@ var buttonKey = function(xK, yK, widthK, heightK, textK){
 	fill(255);
 	rect(xK, yK, widthK, heightK);
 	textAlign(LEFT);
-	textSize(40);
+	textSize(34);
 	stroke(0);
 	fill(255,0,0);
 	text(textK, xK+7 , yK + widthK -7);
